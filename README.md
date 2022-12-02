@@ -13,8 +13,6 @@ The model can be directly launched by running 'mainPercolationDiffusion.m'. The 
 
 Figures 1 (REE diagrams), 2 (Eu anomalies vs Eu content) and 3b (bulk Eu anomalies vs time) from Tilhac et al. can be reproduced by running 'plotting.m' directly using the pre-run results in the output folder. 
 
-Modified from the original MPMCRT code developped by Beñat Oliveira Bravo
-
-By Romain Tilhac, Decembre 2022
-
-Contact: romain.tilhac@csic.es
+Modified from the original MPMCRT code developped by Beñat Oliveira Bravo.
+By Romain Tilhac, Decembre 2022.
+Contact: romain.tilhac@csic.es.
