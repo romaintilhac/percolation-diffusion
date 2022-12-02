@@ -3,7 +3,7 @@ MATLAB code to compute the diffusional re-equilibration of REE in a solid matrix
     
 The package (tested in Matlab R2021b) includes:
 - The main percolation-diffusion model ('mainPercolationDiffusion.m')
-- An input file (input.xlsx) which includes solid, liquid and chondrite (for normalization) compositions, and a set of partition and diffusion coefficients. 
+- An input file (input.xlsx) which includes solid, liquid and normalization compositions, and a set of partition and diffusion coefficients. 
 - A user file ('initializeAdhoc.m') to load the inputs and initialize the different percolation-diffusion parameters 
 - All the required dependencies (in the 'utils' folder)
 - An output folder that containts pre-run results similar to the model results shown in Tilhac et al. (currently under review).
