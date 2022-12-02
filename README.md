@@ -7,7 +7,7 @@ The package (tested in Matlab R2021b) includes:
 - A user file ('initializeAdhoc.m') to load the inputs and initialize the different percolation-diffusion parameters 
 - A utils folder that contains all the required dependencies
 - An output folder that contains pre-run results similar to the model results shown in Tilhac et al. (currently under review).
-- An additional code ('plotting.m')to generate plots similar to the figures shown in Tilhac et al. (currently under review).
+- An additional code ('plotting.m') to generate plots similar to the figures shown in Tilhac et al. (currently under review).
 
 The model can be directly launched by running 'mainPercolationDiffusion.m'. The user can change the input file (as long as the user file is updated accordingly). Running the model on a desktop computer using the current default settings takes about 1-10 minutes (depending on the number of timesteps required by the percolation settings).
 
