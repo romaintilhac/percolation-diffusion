@@ -1,7 +1,7 @@
 # Percolation-diffusion model
 MATLAB code to compute the diffusional re-equilibration of REE in a solid matrix of spherical mantle minerals percolated by a melt in a 1D column
     
-The package has been tested functional in Matlab R2021b)includes:
+The package (tested in Matlab R2021b) includes:
 - The main percolation-diffusion model ('mainPercolationDiffusion.m')
 - An input file (input.xlsx) which includes solid, liquid and chondrite (for normalization) compositions, and a set of partition and diffusion coefficients. 
 - A user file ('initializeAdhoc.m') to load the inputs and initialize the different percolation-diffusion parameters 
