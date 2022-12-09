@@ -12,7 +12,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 ## Instructions & user changes
 
 The model can be directly launched by running mainPercolationDiffusion.m. 
-They are two main sections that contains parameters that can be safely changed by the user (marked as USER CHANGE):
+There are two main sections that contains parameters that can be safely changed by the user (marked as USER CHANGE):
 - Firstly, the Main parameters, which includes P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu2+/Eu3+ (to investigate the diffusive fractionation of Eu as in Tilhac et al.).
 - Secondly, the Mineral compositions, which includes modal compositions, grain size and the activation of the P and T dependencies on diffusivities.
 
