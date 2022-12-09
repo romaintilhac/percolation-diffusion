@@ -2,23 +2,25 @@
     % Computes the diffusional re-equilibration of REE in a solid matrix
     % of spherical mantle minerals percolated by a melt in a 1D column
 
-    % Modified from the original MPMCRT code developped by Beñat Oliveira Bravo
-    % By Romain Tilhac, Decembre 2022
+    % Modified from the original MPMCRT code developed by Beñat Oliveira Bravo
+    % By Romain Tilhac, December 2022
     % Contact: romain.tilhac@csic.es
 
-    clear; clf;clc; close all;
-    addpath([pwd,'/utils']);
+    clear; clc; close all;
+    addpath(fullfile(pwd,'utils'));
+    if ~exist('output');mkdir output; end % create output folder is missing
+    delete(fullfile(pwd,'output','*.mat')) % clear previous output files
     closevar; 
     
 %% PROBLEM SETUP
 
     % PROBLEM STATEMENT 
         x1 = 0;                     % Domain X first vertice 
-        x2 = 300;                 % Domain X second vertice        
+        x2 = 300;                   % Domain X second vertice        
         xsize = x2 - x1;
         
         y1 = 0;                     % Domain Y first vertice
-        y2 = 1000;              % Domain Y second vertice
+        y2 = 1000;                  % Domain Y second vertice
         ysize = y2 - y1;
 
     % INFO EULERIAN MESH
@@ -1239,10 +1241,6 @@
                     exp_factor = 0.3;
                     for index_mesh=1:nc; aux_mesh(index_mesh)=(1-(1/index_mesh)^exp_factor)/(1-(1/nc)^exp_factor); end
                     xmesh_Cpx = MRadi(1,2)*aux_mesh;
-
-                    if ~exist('output')
-                        mkdir output
-                    end
 
                     if ismember(iter,save_list)
                         baseFileName = sprintf('savetime_%d', save_iter);
