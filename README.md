@@ -28,12 +28,14 @@ The _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup
 
 The _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene (1 - used in Tilhac _et al._) or the default allocations (0).
 
-## Credits & references
+## Credits
 
 By Romain Tilhac, CSIC post-doctoral researcher at the  Instituto Andaluz de Ciencias de la Tierra (IACT), Granada, Spain. <br />
 Modified from the original MPMCRT code developed by Beñat Oliveira Bravo. <br />
 Updated on December 9th, 2022 <br />
 Contact: romain.tilhac@csic.es
+
+**References**
 
 Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle. Under review.
 
