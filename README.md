@@ -30,8 +30,8 @@ The _benchmark_2Cpx_ boolean allows to use two different grain-size populations 
 
 ## Credits
 
-Modified from the original MPMCRT code developed by Beñat Oliveira Bravo <br />
 By Romain Tilhac, CSIC post-doctoral researcher at the  Instituto Andaluz de Ciencias de la Tierra (IACT), Granada, Spain.
+Modified from the original MPMCRT code developed by Beñat Oliveira Bravo. <br />
 
 Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle. Under review.
 
