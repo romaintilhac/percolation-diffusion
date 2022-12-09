@@ -24,9 +24,11 @@ Running the model on a desktop computer using the current default settings takes
 
 Model outputs similar to the ones shown in Tilhac _et al_. can be reproduced by running _plotting.m_. To reproduce **Figure 1** (REE diagrams) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
 
-- Note 1: the _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+**Notes**
 
-- Note 2: the _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene (1 - used in Tilhac), instead of the default allocations (0).
+The _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+
+The _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene (1 - used in Tilhac), instead of the default allocations (0).
 
 ## Credits
 
