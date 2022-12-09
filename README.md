@@ -14,18 +14,20 @@ The package (tested in Matlab R2021b and R2022b) includes:
 The model can be directly launched by running _mainPercolationDiffusion.m_. 
 There are two main sections that contains parameters that can be safely changed by the user (marked as USER CHANGE):
 - Firstly, the **Main parameters**, which includes P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._).
-- Secondly, the **Mineral compositions**, which includes modal compositions, grain size and the activation of the P and T dependencies on diffusivities.
+- Secondly, the **Mineral compositions**, which includes modal compositions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations is olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_), but only clinopyroxene is used in Tilhac _et al_. (see the **Reproducibility note** below).
 
-The user can also change the compositions and coefficients provided in the input file. It is important that the partition and diffusion coefficients provided input file match the mineral compositions in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, they will need their respective coefficients to be provided). Note: the 'benchmark_2Cpx' boolean allows to use two different grain-size populations (using the two first allocations) for clinopyroxene, as in Tilhac _et al_. (see the **Reproducibility note** below).
+The user can change the compositions and coefficients provided in the input file, but it is important that the partition and diffusion coefficients provided in the input file match the mineral compositions in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided).
 
 Running the model on a desktop computer using the current default settings takes about 1-10 minutes (depending, among others, on the number of time steps required). Do not force-change the number of time steps as needs to be calculated from the column length and melt velocity based on the number of nodes and particle spacing.
 
 ## Reproducibility note
 
-Model outputs similar to the ones shown in Tilhac et al. can be reproduced by running plotting.m.
-- To reproduce **Figure 1** (REE diagrams) and **Figure 2** (Eu anomalies vs Eu content), the code reads the output subfolder _pre-run_. Similar outputs can directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
+Model outputs similar to the ones shown in Tilhac _et al_. can be reproduced by running _plotting.m_.
+- To reproduce **Figure 1** (REE diagrams) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
 
-Note: the _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+Note 1: the _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+
+Note 2: the _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene (1 - used in Tilhac), instead of the default allocations (0).
 
 ## Credits
 
