@@ -13,7 +13,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 
 The model can be directly launched by running 'mainPercolationDiffusion.m'. 
 They are two main sections that contains parameters that can be safely changed by the user (marked as USER CHANGE):
-- Firstly, the Main parameters, which includes the proportion of Eu2+/Eu3+ (to investigate the diffusive fractionation of Eu as in Tilhac et al.), P-T conditions, porosity, melt velocity, time and saving intervals.
+- Firstly, the Main parameters, which includes P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu2+/Eu3+ (to investigate the diffusive fractionation of Eu as in Tilhac et al.).
 - Secondly, the Mineral compositions, which includes modal compositions, grain size and the activation of the P and T dependencies on diffusivities.
 
 The user can also change the compositions and coefficients provided in the input file. It is important that the partition and diffusion coefficients provided input file match the mineral compositions in the user file (e.g. if clinopyroxene, orthopyroxene and olivine are listed in the user file, they will need their respective coefficients to be provided). Note: the 'benchmark_2Cpx' boolean allows to use two different grain-size populations (using the two first allocations) for cpx, as in Tilhac et al. (see the Reproducibility note below).
