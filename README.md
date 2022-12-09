@@ -13,7 +13,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 
 The model can be directly launched by running _mainPercolationDiffusion.m_. 
 There are two main sections that contains parameters that can be safely changed by the user (marked as USER CHANGE):
-- Firstly, the **Main parameters**, which includes P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu^2+/Eu^3+ (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._).
+- Firstly, the **Main parameters**, which includes P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._).
 - Secondly, the **Mineral compositions**, which includes modal compositions, grain size and the activation of the P and T dependencies on diffusivities.
 
 The user can also change the compositions and coefficients provided in the input file. It is important that the partition and diffusion coefficients provided input file match the mineral compositions in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, they will need their respective coefficients to be provided). Note: the 'benchmark_2Cpx' boolean allows to use two different grain-size populations (using the two first allocations) for cpx, as in Tilhac _et al_. (see the **Reproducibility note** below).
@@ -25,7 +25,7 @@ Running the model on a desktop computer using the current default settings takes
 Model outputs similar to the ones shown in Tilhac et al. can be reproduced by running plotting.m.
 - To reproduce **Figure 1** (REE diagrams) and **Figure 2** (Eu anomalies vs Eu content), the code reads the output subfolder _pre-run_. Similar outputs can directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
 
-Note: the _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu^2+ based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr2+ in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+Note: the _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities (Sneeringer _et al._, 1984) of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
 
 ## Credits
 
