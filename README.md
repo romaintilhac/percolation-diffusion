@@ -6,7 +6,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 - An input file (input.xlsx) which includes solid, liquid and normalization compositions, and a set of partition and diffusion coefficients
 - A user file (initializeAdhoc.m) to load the inputs and set the different percolation-diffusion parameters 
 - A utils folder that contains all the required dependencies
-- An output folder that contains where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in Tilhac et al. (currently under review).
+- An output folder that contains where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in Tilhac et al. (currently under review)
 - An additional code (plotting.m) to generate plots similar to the figures shown in Tilhac et al.
 
 ## Instructions & user changes
