@@ -30,7 +30,7 @@ The _benchmark_2Cpx_ boolean allows to use two different grain-size populations 
 
 ## Credits & references
 
-By Romain Tilhac, CSIC post-doctoral researcher at the  Instituto Andaluz de Ciencias de la Tierra (IACT), Granada, Spain.
+By Romain Tilhac, CSIC post-doctoral researcher at the  Instituto Andaluz de Ciencias de la Tierra (IACT), Granada, Spain. <br />
 Modified from the original MPMCRT code developed by Beñat Oliveira Bravo. <br />
 Updated on December 9th, 2022 <br />
 Contact: romain.tilhac@csic.es
