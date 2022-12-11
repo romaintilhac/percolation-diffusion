@@ -1,23 +1,5 @@
 function [benchmark_2Cpx, benchmark_Eu, r_Eu,input_solid,input_liquid, diff_nTE,ME_solid,NR_solid,NR_fluid,NGamma,fix_radi,diff_nTP,Kd_coeff,D_coeff, E_coeff,V_coeff,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_wt,NTp_vol0,NTp_vol,NT,timestep,time_end,save_list,input_TP_v,input_TP_w] = ...
-    initializeAdhoc(nTP, nTE,ME_solid,NR_solid,NR_fluid,NGamma,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_wt,NTp_vol, NTp_vol0,NT,ystpt,ysize)
-
-%% Load inputs & initialize
-
-filename='input.xlsx';
-    input_solid=readtable(filename).solid';
-    input_liquid=readtable(filename).liquid';
-    normalization=readtable(filename).N';
-    Kd_cpx=readtable(filename).Kd_cpx';
-    D_cpx=readtable(filename).D_cpx';
-    E_cpx=readtable(filename).E_cpx';
-    V_cpx=readtable(filename).V_cpx';
-
-    diff_nTE = ones(1,nTE);
-    Kd_coeff=zeros(nTP, nTE);
-    D_coeff=zeros(nTP, nTE);
-    E_coeff=zeros(nTP, nTE);
-    V_coeff=zeros(nTP, nTE);
-
+    initializeAdhoc(TP_list,TE_list,ME_solid,NR_solid,NR_fluid,NGamma,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_wt,NTp_vol, NTp_vol0,NT,ystpt,ysize)
 %% Main parameters
 
     r_Eu = 0.1; % Eu2+/Eu3+ proportion USER CHANGE
@@ -29,14 +11,15 @@ filename='input.xlsx';
     fix_T = 1200;  % constant temperature [ºC] USER CHANGE
     fix_Vy = 5; % constant melt velocity [cm/y] USER CHANGE
     fix_Vy = fix_Vy/100/365/24/60/60; % constant melt velocity [m/s]
-                      
-%     time_critical = ysize/fix_Vy;
-%     n_time_critical = 2; % number of critical times
-%     time_end=n_time_critical*time_critical; 
 
     time_end_My = 0.02; % duration [My] USER CHANGE
     time_end = time_end_My*1e6*365*24*60*60; % [s]
-    
+
+    %%UNCOMMENT TO USE CRITICAL TIMES USER CHANGE
+%     time_critical = ysize/fix_Vy; 
+%     n_time_critical = 2; % number of critical times
+%     time_end=n_time_critical*time_critical; 
+
     timestep = ystpt/fix_Vy/5; %check with number of nodes and particle spacing
     ntimesteps = round(time_end/timestep);
 
@@ -44,77 +27,67 @@ filename='input.xlsx';
     save_list = 1:save_interval:ntimesteps;
     
 %% Mineral compositions
-% CAUTION: this section has to be consistent with the input file
 
-    benchmark_2Cpx=1; % 1, allocate 2 populations of cpx
-    % if 0, partition and diffusion coefficients of Oli, Cpx, Oli, Grt, Spl and Plg
-    % may have to be provided in the input file (depending on the parameters below).
+    benchmark_2Cpx=1; % 1, allocate 2 populations of cpx (using the first two allocations)
                                           
-  
-                                          %Oli    Cpx    Opx  Grt  Spl  Plg (benchmark_2Cpx=0)
-    nTP_vol =                             [0.9    0.1    0    0    0    0]; % modal proportion [vol] USER CHANGE
+    nTP_vol =                             [0.9    0.1    0      0     0    0]; % modal proportion [vol] USER CHANGE
     diff_nTP  =  double(nTP_vol>0);
-    rho_nTP   =  diff_nTP.*               [1      1      1    1    1    1];
-    ini_radi =                            [0.01   1      0    0    0    0]*1E-3; % grain size in [mm] (to [m]) USER CHANGE
-    diffT_nTP =  diff_nTP.*               [0      1      0    1    0    0];  % P dependency of the diffusivity USER CHANGE
-    diffP_nTP = diffT_nTP.*               [0      1      0    1    0    0];  % T dependency of the diffusivity USER CHANGE
-                                          %cpx2   cpx1  (benchmark_2Cpx=1)
+    rho_nTP   =  diff_nTP.*               [1      1      1      1     1    1];
+    ini_radi =                            [0.01   1      0      0     0	   0]*1E-3; % grain size in [mm] (to [m]) USER CHANGE
+    diffT_nTP =  diff_nTP.*               [1      1      1      1     1    1];  % T dependency of the diffusivity USER CHANGE
+    diffP_nTP = diffT_nTP.*               [0      1      0      1     0    0];  % P dependency of the diffusivity USER CHANGE
+    % TP allocations (benchmark_2Cpx=0)   Oli    Cpx    Opx    Grt    Spl  Plg 
+    % TP allocations (benchmark_2Cpx=1)   Cpx2   Cpx1  
 
-    if benchmark_2Cpx==1
-        Kd_coeff(2,:) = Kd_cpx;
-        D_coeff(2,:) = D_cpx;
-        E_coeff(2,:) = E_cpx*diffT_nTP(2);
-        V_coeff(2,:) = V_cpx*diffP_nTP(2);   
-    else
-        Kd_coeff(1,:) = Kd_oli;
-        D_coeff(1,:) = D_oli;
-        E_coeff(1,:) = E_oli*diffT_nTP(2);
-        V_coeff(1,:) = V_oli*diffP_nTP(2);
-    
-        Kd_coeff(2,:) = Kd_cpx;
-        D_coeff(2,:) = D_cpx;
-        E_coeff(2,:) = E_cpx*diffT_nTP(2);
-        V_coeff(2,:) = V_cpx*diffP_nTP(2);
-        
-        Kd_coeff(3,:) = Kd_opx;
-        D_coeff(3,:) = D_opx;
-        E_coeff(3,:) = E_opx*diffT_nTP(2);
-        V_coeff(3,:) = V_opx*diffP_nTP(2);
-       
-        Kd_coeff(4,:) = Kd_grt;
-        D_coeff(4,:) = D_grt;
-        E_coeff(4,:) = E_grt*diffT_nTP(2);
-        V_coeff(4,:) = V_grt*diffP_nTP(2);
-    
-        Kd_coeff(5,:) = Kd_spl;
-        D_coeff(5,:) = D_spl;
-        E_coeff(5,:) = E_spl*diffT_nTP(2);
-        V_coeff(5,:) = V_spl*diffP_nTP(2);
-    
-        Kd_coeff(6,:) = Kd_plg;
-        D_coeff(6,:) = D_plg;
-        E_coeff(6,:) = E_plg*diffT_nTP(2);
-        V_coeff(6,:) = V_plg*diffP_nTP(2);
-    end
+%% Load inputs
+% from input.xlsx
+
+filename='input.xlsx';
+    input_solid=readtable(filename).solid';
+    input_liquid=readtable(filename).liquid';
+    normalization=readtable(filename).N';
+
+nTE = length(TE_list);
+nTP = length(TP_list);
+
+diff_nTE = ones(1,nTE);
+Kd_coeff=zeros(nTP, nTE);
+D_coeff=zeros(nTP, nTE);
+E_coeff=zeros(nTP, nTE);
+V_coeff=zeros(nTP, nTE);
+
+for i=1:nTP
+    TP=TP_list(i);
+
+    Kd.(TP)=readtable(filename).(strcat('Kd_',TP))';
+    D.(TP)=readtable(filename).(strcat('D_',TP))';
+    E.(TP)=readtable(filename).(strcat('E_',TP))';
+    V.(TP)=readtable(filename).(strcat('V_',TP))';
+
+    Kd_coeff(i,:) = Kd.(TP);
+    D_coeff(i,:) = D.(TP);
+    E_coeff(i,:) = E.(TP)*diffT_nTP(i);
+    V_coeff(i,:) = V.(TP)*diffP_nTP(i);
+end
+
+rho_nPH   = [nTP_vol*rho_nTP' 1];
+Rho_ave   = [(1-fix_poros) fix_poros]*rho_nPH';
+input_TP_v = [nTP_vol/sum(nTP_vol)*(1-fix_poros) fix_poros];
+input_TP_w = input_TP_v.*[rho_nTP rho_nPH(2)]./Rho_ave;
+
+n_Tp = [5E5 5E5 5E5 5E5 5E5 5E5];
+n_Tp(logical(diff_nTP)) = (nTP_vol(logical(diff_nTP))/sum(nTP_vol)*(1-fix_poros))./((4/3)*pi.*ini_radi(logical(diff_nTP)).^3);
+ME_solid(:,3+nTE+1:end) = repmat(n_Tp,size(ME_solid,1),1);
+
+aux_radi=0;
+fix_radi  = aux_radi*diff_nTP.*ini_radi; 
+fix_poros = [1-fix_poros fix_poros];    
+fix_press = [fix_P fix_P];
+fix_velo  = [0 0 0 fix_Vy];
 
 %% Assign variables
-
-    rho_nPH   = [nTP_vol*rho_nTP' 1];
-    Rho_ave   = [(1-fix_poros) fix_poros]*rho_nPH';
-    input_TP_v = [nTP_vol/sum(nTP_vol)*(1-fix_poros) fix_poros];
-    input_TP_w = input_TP_v.*[rho_nTP rho_nPH(2)]./Rho_ave;
-
-    n_Tp = [5E5 5E5 5E5 5E5 5E5 5E5];
-    n_Tp(logical(diff_nTP)) = (nTP_vol(logical(diff_nTP))/sum(nTP_vol)*(1-fix_poros))./((4/3)*pi.*ini_radi(logical(diff_nTP)).^3);
-    ME_solid(:,3+nTE+1:end) = repmat(n_Tp,size(ME_solid,1),1);
-
-    aux_radi=0;
-    fix_radi  = aux_radi*diff_nTP.*ini_radi; 
-    fix_poros = [1-fix_poros fix_poros];    
-    fix_press = [fix_P fix_P];
-    fix_velo  = [0 0 0 fix_Vy];
-
 % from initializeDynamics
+
     NR_solid = 0*NR_solid;
     NR_fluid = 0*NR_fluid;
     NGamma = 0*NGamma;
