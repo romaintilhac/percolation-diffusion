@@ -6,7 +6,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 - An input file (_input.xlsx_) which includes solid, liquid and normalization compositions, and a set of partition and diffusion coefficients for the main mantle minerals
 - A user file (_initializeAdhoc.m_) to load the inputs and set the different percolation-diffusion parameters 
 - A _utils_ folder that contains all the required dependencies
-- An _output_ folder where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in Tilhac et al. (currently under review)
+- An _output_ folder where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in Tilhac _et al_. (currently under review)
 - An additional code (_plotting.m_) to generate plots similar to the figures shown in Tilhac _et al_.
 
 ## Instructions & user changes
