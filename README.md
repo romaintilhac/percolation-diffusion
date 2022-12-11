@@ -14,7 +14,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 The model can be directly launched by running _mainPercolationDiffusion.m_. 
 There are two main sections that contains parameters that can be safely changed by the user in _initializeAdhoc.m_ (marked as USER CHANGE):
 - Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._).
-- Secondly, the **Mineral parameters**, which include modal proportions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations is olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_).
+- Secondly, the **Mineral parameters**, which include modal proportions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations are olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_).
 
 The compositions and coefficients provided in the input file are taken from Oliveira _et al._ (2020). They can be changed by the user but it is important that they match the mineral parameters in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided).
 
