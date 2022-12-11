@@ -26,7 +26,7 @@ function [benchmark_2Cpx, benchmark_Eu, r_Eu,input_solid,input_liquid, diff_nTE,
     save_interval = 1; % saving at every timestep USER CHANGE
     save_list = 1:save_interval:ntimesteps;
     
-%% Mineral compositions
+%% Mineral parameters
 
     benchmark_2Cpx=1; % 1, allocate 2 populations of cpx (using the first two allocations)
                                           
