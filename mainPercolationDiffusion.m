@@ -59,7 +59,8 @@
                 TE_list = split("La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu");
                 Eu_pos=find(contains(TE_list,"Eu")); %position of Eu in the list of trace elements
                 nTE = length(TE_list); % trace elements
-                nTP = 6; % thermodynamic phases
+                TP_list = split("oli cpx opx grt spl plg");
+                nTP = length(TP_list); % thermodynamic phases
 
                 [ME_solid, ME_fluid]  = createParticles_Elements(mxelem,myelem,nxt,nyt,xsize,ysize,nTE,nTP);
                 
@@ -78,11 +79,7 @@
     initializeDynamics('default.mat',nxt,nyt); 
 
     [benchmark_2Cpx, benchmark_Eu, r_Eu,TE_input_solid,TE_input_liquid, diff_nTE, ME_solid,NR_solid,NR_fluid,NGamma,fix_radi,diff_nTP,Kd_coeff,D_coeff, E_coeff,V_coeff,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_wt,NTp_vol0,NTp_vol,NT,timestep,time_end,save_list,input_TP_v,input_TP_w] = ...
-    initializeAdhoc(nTP, nTE ,ME_solid,NR_solid,NR_fluid,NGamma,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_vol,NTp_vol0,NTp_wt,NT,ystpt,ysize);
-
-    if size(Kd_coeff,2) ~= nTE
-        error("Kd_coeff does not match nTE")
-    end
+    initializeAdhoc(TP_list, TE_list ,ME_solid,NR_solid,NR_fluid,NGamma,NRho0,NRho,NRho_tp,NRho_tp0,NV_mat0,NV_mat,NP_mat,NDiv0,NDiv,NPhi0,NPhi,NTp_wt0,NTp_vol,NTp_vol0,NTp_wt,NT,ystpt,ysize);
     
     disp(['Initialization completed - ' num2str(time_end/timestep) ' timesteps'])
     keyboard
