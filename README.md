@@ -1,5 +1,4 @@
-# Percolation-diffusion model
-[![DOI](https://zenodo.org/badge/573516734.svg)](https://zenodo.org/badge/latestdoi/573516734)
+# Percolation-diffusion model [![DOI](https://zenodo.org/badge/573516734.svg)](https://zenodo.org/badge/latestdoi/573516734)
 MATLAB code to compute the diffusional re-equilibration of trace elements (_e.g._ REE) in a solid matrix of spherical mantle minerals percolated by a melt in a 1D column
     
 The package (tested in Matlab R2021b and R2022b) includes:
