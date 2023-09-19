@@ -22,7 +22,7 @@ Running the model on a desktop computer using the current default settings takes
 
 ## Reproducibility note
 
-Model outputs as shown in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0). can be reproduced by directly running _plotting.m_. To reproduce **Figure 1** (REE patterns) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can also directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
+Model outputs as shown in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0) can be reproduced by directly running _plotting.m_. To reproduce **Figure 1** (REE patterns) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can also directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
 
 The _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in [Tilhac _et al._, 2023](https://www.nature.com/articles/s41467-023-36753-0)) or natural (0) diopside.
 
