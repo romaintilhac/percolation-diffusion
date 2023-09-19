@@ -6,27 +6,27 @@ The package (tested in Matlab R2021b and R2022b) includes:
 - An input file (_input.xlsx_) which includes solid, liquid and normalization compositions, and a set of partition and diffusion coefficients for the main mantle minerals
 - A user file (_initializeAdhoc.m_) to load the inputs and set the different percolation-diffusion parameters 
 - A _utils_ folder that contains all the required dependencies
-- An _output_ folder where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in Tilhac _et al_. (currently under review)
-- An additional code (_plotting.m_) to generate plots similar to the figures shown in Tilhac _et al_.
+- An _output_ folder where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in [Tilhac _et al._, 2023)](https://www.nature.com/articles/s41467-023-36753-0).
+- An additional code (_plotting.m_) to generate plots similar to the figures shown in Tilhac _et al._, 2023.
 
 ## Instructions & user changes
 
 The model can be directly launched by running _mainPercolationDiffusion.m_. 
 There are two main sections that contains parameters that can be safely changed by the user in _initializeAdhoc.m_ (marked as USER CHANGE):
-- Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Oliveira _et al._, 2023).
+- Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._, 2023).
 - Secondly, the **Mineral parameters**, which include modal proportions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations are olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_).
 
-The partition and diffusion coefficients provided in the input file are taken from Oliveira _et al._ (2020). They can be changed by the user but it is important that they match the mineral parameters in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided). The input compositions given as example correspond to the data used in Tilhac _et al._ (see **Reproducibility note** below).
+The partition and diffusion coefficients provided in the input file are taken from Oliveira _et al._ (2020). They can be changed by the user but it is important that they match the mineral parameters in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided). The input compositions given as example correspond to the data used in Tilhac _et al._, 2023 (see **Reproducibility note** below).
 
 Running the model on a desktop computer using the current default settings takes about 1-10 minutes (depending, among others, on the number of time steps required). Do not manually change the number of time steps as it needs to be calculated from the column length and melt velocity based on the number of nodes and particle spacing.
 
 ## Reproducibility note
 
-Model outputs as shown in Tilhac _et al_. can be reproduced by directly running _plotting.m_. To reproduce **Figure 1** (REE patterns) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can also directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
+Model outputs as shown in Tilhac _et al._, 2023. can be reproduced by directly running _plotting.m_. To reproduce **Figure 1** (REE patterns) and **Figure 2** (Eu anomalies _vs_ Eu contents), the code reads the output subfolder _pre-run_. Similar outputs can also directly be obtained by running _mainPercolationDiffusion.m_ as provided, leaving _initializeAdhoc.m_ unchanged.
 
-The _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._) or natural (0) diopside.
+The _benchmark_Eu_ boolean allows to choose between two diffusivities for Eu<sup>2+</sup> based on the experimental diffusivities of Sr<sup>2+</sup> in either synthetic (1 - conservative choice used in Tilhac _et al._, 2023) or natural (0) diopside.
 
-The _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene only (1 - used in Tilhac _et al._) or the default mineral allocations (0).
+The _benchmark_2Cpx_ boolean allows to use two different grain-size populations for clinopyroxene only (1 - used in Tilhac _et al._, 2023) or the default mineral allocations (0).
 
 ## Credits
 
