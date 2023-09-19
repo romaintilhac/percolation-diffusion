@@ -11,7 +11,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 
 ## Instructions & user changes
 
-The model can be directly launched by running _mainPercolationDiffusion.m_ (only the size _y2_ [m] of the column may be changed in this file).
+The model can be directly launched by running _mainPercolationDiffusion.m_.
 There are two main sections that contains parameters that can be safely changed by the user in _initializeAdhoc.m_ (marked as USER CHANGE):
 - Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in [Tilhac _et al._, 2023](https://www.nature.com/articles/s41467-023-36753-0)).
 - Secondly, the **Mineral parameters**, which include modal proportions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations are olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_).
@@ -19,6 +19,8 @@ There are two main sections that contains parameters that can be safely changed 
 The partition and diffusion coefficients provided in the input file are taken from [Oliveira _et al._ (2020)](https://doi.org/10.1093/petrology/egaa067). They can be changed by the user but it is important that they match the mineral parameters in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided). The input compositions given as example correspond to the data used in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0) (see **Reproducibility note** below).
 
 Running the model on a desktop computer using the current default settings takes about 1-10 minutes (depending, among others, on the number of time steps required). Do not manually change the number of time steps as it needs to be calculated from the column length and melt velocity based on the number of nodes and particle spacing.
+
+Changes such as the size of the column (_y2_ [m]), the list of elements (_TE_list_) and minerals (_TP_list_) can also be changed with caution in _mainPercolationDiffusion.m_. Please contact me for any specific application.
 
 ## Reproducibility note
 
