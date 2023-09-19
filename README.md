@@ -37,7 +37,7 @@ Contact: romain.tilhac@csic.es
 
 ### References
 
-Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. 2023, Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, Nature Communications, Volume 14, 1099, https://www.nature.com/articles/s41467-023-36753-0
+Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. 2023. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, Nature Communications, Volume 14, 1099, https://www.nature.com/articles/s41467-023-36753-0
 
 Oliveira, B., Afonso, J.C., Tilhac, R. 2020. A Disequilibrium Reactive Transport Model for Mantle Magmatism, Journal of Petrology, Volume 61, Issue 9, egaa067, https://doi.org/10.1093/petrology/egaa067
 
