@@ -20,7 +20,7 @@ The partition and diffusion coefficients provided in the input file are taken fr
 
 Running the model on a desktop computer using the current default settings takes about 1-10 minutes (depending, among others, on the number of time steps required). Do not manually change the number of time steps as it needs to be calculated from the column length and melt velocity based on the number of nodes and particle spacing.
 
-Changes such as the size of the column (_y2_ [m]), the list of elements (_TE_list_) and minerals (_TP_list_) can also be changed with caution in _mainPercolationDiffusion.m_. Please contact me for any specific application.
+Other parameters such as the size of the column (_y2_ [m]), the list of elements (_TE_list_) and minerals (_TP_list_) can also be changed with caution in _mainPercolationDiffusion.m_. Please contact me for any specific application.
 
 ## Reproducibility note
 
