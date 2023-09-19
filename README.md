@@ -13,7 +13,7 @@ The package (tested in Matlab R2021b and R2022b) includes:
 
 The model can be directly launched by running _mainPercolationDiffusion.m_. 
 There are two main sections that contains parameters that can be safely changed by the user in _initializeAdhoc.m_ (marked as USER CHANGE):
-- Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Tilhac _et al._).
+- Firstly, the **Main parameters**, which include P-T conditions, porosity, melt velocity, time and saving intervals, as well as the proportion of Eu<sup>2+</sup>/Eu<sup>3+</sup> (to investigate the diffusive fractionation of europium among the REE, as in Oliveira _et al._, 2023).
 - Secondly, the **Mineral parameters**, which include modal proportions, grain size and the activation of the P and T dependencies on diffusivities. The default mineral allocations are olivine (_Oli_), clinopyroxene (_Cpx_), orthopyroxene (_Opx_), garnet (_Grt_), spinel (_Spl_) and plagioclase (_Plg_).
 
 The partition and diffusion coefficients provided in the input file are taken from Oliveira _et al._ (2020). They can be changed by the user but it is important that they match the mineral parameters in the user file (_e.g._ if clinopyroxene, orthopyroxene and olivine are listed in the user file, their respective coefficients must be provided). The input compositions given as example correspond to the data used in Tilhac _et al._ (see **Reproducibility note** below).
@@ -37,8 +37,7 @@ Contact: romain.tilhac@csic.es
 
 ### References
 
-Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, [https://www.nature.com/articles/s41467-023-36753-0](https://www.nature.com/articles/s41467-023-36753-0) 
+Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. 2023, Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, Nature Communications, Volume 14, 1099, https://www.nature.com/articles/s41467-023-36753-0
 
-
-Oliveira, B., Afonso, J.C., Tilhac, R. A Disequilibrium Reactive Transport Model for Mantle Magmatism, Journal of Petrology, Volume 61, Issue 9, September 2020, egaa067, https://doi.org/10.1093/petrology/egaa067
+Oliveira, B., Afonso, J.C., Tilhac, R. 2020. A Disequilibrium Reactive Transport Model for Mantle Magmatism, Journal of Petrology, Volume 61, Issue 9, egaa067, https://doi.org/10.1093/petrology/egaa067
 
