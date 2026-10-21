@@ -9,7 +9,6 @@ function [M,K,C] = matrices_1D(xnode,xipg,wpg,N,Nxi)
 %   xipg, wpg : numerical quadrature
 %   N, Nxi : shape functions and its derivatives on Gauss' points
 %
-
  
 % Total number of nodes and elements
 npoin = size(xnode,2); 
@@ -42,14 +41,3 @@ for i=1:nelem
         C(isp,isp) = C(isp,isp) + w_ig*2*(1/x)*N_ig'*Nx_ig;
     end
  end
-
-
-
-
-
-
-
-
-
-
-
