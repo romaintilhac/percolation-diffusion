@@ -34,12 +34,13 @@ The _benchmark_2Cpx_ boolean allows to use two different grain-size populations 
 
 Developed by [**Romain Tilhac**](https://romaintilhac.github.io/), CSIC post-doctoral researcher at the  Instituto Andaluz de Ciencias de la Tierra (IACT), Granada, Spain. <br />
 Modified from the original MPMCRT code developed by Beñat Oliveira Bravo ([Oliveira _et al.,_ 2020](https://doi.org/10.1093/petrology/egaa067)). <br /> 
-Updated on December 11th, 2022 <br />
-Contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
+Updated contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
 
 ### References
 
 Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. 2023. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, Nature Communications, Volume 14, 1099, https://www.nature.com/articles/s41467-023-36753-0
 
 Oliveira, B., Afonso, J.C., Tilhac, R. 2020. A Disequilibrium Reactive Transport Model for Mantle Magmatism, Journal of Petrology, Volume 61, Issue 9, egaa067, https://doi.org/10.1093/petrology/egaa067
+
+_Updated on December 11th, 2022._
 
