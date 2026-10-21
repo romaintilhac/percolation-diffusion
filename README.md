@@ -42,7 +42,7 @@ Developed by [**Romain Tilhac**](https://romaintilhac.github.io/), CSIC post-doc
 Modified from the original MPMCRT code developed by Beñat Oliveira Bravo ([Oliveira _et al.,_ 2020](https://doi.org/10.1093/petrology/egaa067)). <br /> 
 Updated contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
 
-### References
+## References
 
 Tilhac, R., Hidas, K., Oliveira, B., Garrido, C.J. 2023. Evidence of ghost plagioclase signature induced by kinetic fractionation of europium in the Earth’s mantle, Nature Communications, Volume 14, 1099, https://www.nature.com/articles/s41467-023-36753-0
 
