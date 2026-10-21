@@ -1,5 +1,5 @@
 # Percolation-diffusion model [![DOI](https://zenodo.org/badge/573516734.svg)](https://doi.org/10.5281/zenodo.7573770)
-MATLAB code to compute the diffusional re-equilibration of trace elements (_e.g._ REE) in a solid matrix of spherical mantle minerals percolated by a melt in a 1D column.
+MATLAB implementation of a 1D percolation-diffusion model to compute the diffusional re-equilibration of REE in a solid matrix of spherical mantle minerals percolated by a melt in a 1D column.
     
 The package (tested in Matlab R2021b and R2022b) includes:
 - The main percolation-diffusion model (_mainPercolationDiffusion.m_)
@@ -8,6 +8,12 @@ The package (tested in Matlab R2021b and R2022b) includes:
 - A _utils_ folder that contains all the required dependencies
 - An _output_ folder where the models results are saved. This folder currently contains the pre-run model results necessary to reproduce the outputs shown in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0).
 - An additional code (_plotting.m_) to generate plots similar to the figures shown in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0).
+
+## Versions
+
+- **[v1.0](https://github.com/romaintilhac/percolation-diffusion/releases/tag/v1.0):** Original implementation developed to investigate the kinetic fractionation of europium, as presented in [Tilhac _et al._ (2023)](https://www.nature.com/articles/s41467-023-36753-0).
+
+- **[v1.1](https://github.com/romaintilhac/percolation-diffusion/releases/tag/v1.1):** Flexible MATLAB implementation for modelling _m_ trace elements in a solid matrix comprising _n_ spherical mineral phases percolated by a liquid.
 
 ## Instructions & user changes
 
