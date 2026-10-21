@@ -1,8 +1,10 @@
 clear;
 addpath(fullfile(pwd,'utils'));
-subfolder='pre-run';
+subfolder='test';
 folderpath=fullfile(pwd,'output',subfolder);
 time_index_max=size(dir(fullfile(folderpath,'*.mat')),1)-1;
+
+iTP = 2;
 
 %load input
 filename='input.xlsx';
@@ -10,7 +12,7 @@ filename='input.xlsx';
     input_solid=readtable(filename).solid';
     input_liquid=readtable(filename).liquid';
     N=readtable(filename).N';
-    Kd_cpx=readtable(filename).Kd_cpx';
+    Kd_cpx=readtable(filename).Kd_Cpx';
 
 TE_list = split('La Ce Pr Nd Sm Eu Gd Tb Dy Ho Er Tm Yb Lu'); nTE = length(TE_list);
 TE_list_full = split('La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu');
@@ -67,7 +69,7 @@ ymin = 0.1; ymax = 1000;
     load(fullfile(folderpath,baseFileName));       
     
     for i = 1:length(zoning_index)
-        TE_pattern_aux(zoning_index(i),:) = ME_Cpx_save(depth_index*nTE-nTE+1:depth_index*nTE,zoning_index(i))./N'; %normalization
+        TE_pattern_aux(zoning_index(i),:) = ME_save_tp{iTP}(depth_index*nTE-nTE+1:depth_index*nTE,zoning_index(i))./N'; %normalization
         Pm(zoning_index(i)) = sqrt(TE_pattern_aux(zoning_index(i),Pm_pos-1)*TE_pattern_aux(zoning_index(i),Pm_pos)); %Pm interpolation
         TE_pattern(zoning_index(i),:) = [TE_pattern_aux(zoning_index(i),1:Pm_pos-1) Pm(zoning_index(i)) TE_pattern_aux(zoning_index(i),Pm_pos:end)];
         semilogy(0:nTE,TE_pattern(zoning_index(i),:),"LineStyle","-","Color",cmap(i,:));
@@ -81,7 +83,7 @@ ymin = 0.1; ymax = 1000;
     load(fullfile(folderpath,baseFileName));    
     
     for i = 1:length(zoning_index)
-        TE_pattern_aux(zoning_index(i),:) = ME_Cpx_save(depth_index*nTE-nTE+1:depth_index*nTE,zoning_index(i))./N'; %normalization
+        TE_pattern_aux(zoning_index(i),:) = ME_save_tp{iTP}(depth_index*nTE-nTE+1:depth_index*nTE,zoning_index(i))./N'; %normalization
         Pm(zoning_index(i)) = sqrt(TE_pattern_aux(zoning_index(i),Pm_pos-1)*TE_pattern_aux(zoning_index(i),Pm_pos)); %Pm interpolation
         TE_pattern(zoning_index(i),:) = [TE_pattern_aux(zoning_index(i),1:Pm_pos-1) Pm(zoning_index(i)) TE_pattern_aux(zoning_index(i),Pm_pos:end)];
         model1=semilogy(0:nTE,TE_pattern(zoning_index(i),:),"LineStyle","--","Color",cmap(i,:));
@@ -108,10 +110,10 @@ ymin = 0.4; ymax = 2;
             baseFileName = sprintf('savetime_%d', time_index);
             load(fullfile(folderpath,baseFileName));    
             i=i+1;
-            Eu(i,:) = ME_Cpx_save(depth_index*nTE-nTE+Eu_pos-1,:);
-            Sm_N(i,:) = ME_Cpx_save(depth_index*nTE-nTE+Sm_pos-1,:)./N(Sm_pos-1);
-            Eu_N(i,:) = ME_Cpx_save(depth_index*nTE-nTE+Eu_pos-1,:)./N(Eu_pos-1);
-            Gd_N(i,:) = ME_Cpx_save(depth_index*nTE-nTE+Gd_pos-1,:)./N(Gd_pos-1);
+            Eu(i,:) = ME_save_tp{iTP}(depth_index*nTE-nTE+Eu_pos-1,:);
+            Sm_N(i,:) = ME_save_tp{iTP}(depth_index*nTE-nTE+Sm_pos-1,:)./N(Sm_pos-1);
+            Eu_N(i,:) = ME_save_tp{iTP}(depth_index*nTE-nTE+Eu_pos-1,:)./N(Eu_pos-1);
+            Gd_N(i,:) = ME_save_tp{iTP}(depth_index*nTE-nTE+Gd_pos-1,:)./N(Gd_pos-1);
             Eu_anomaly_N(i,:) = Eu_N(i,:)./(sqrt(Sm_N(i,:).*Gd_N(i,:)));
             plot(Eu(i,:), Eu_anomaly_N(i,:));
             hold on
